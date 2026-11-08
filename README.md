@@ -1,53 +1,69 @@
-# Kotlin Basics
+# Kotlin Foundations
 
-A hands-on Kotlin course for beginners. Each lesson is a small, standalone program with comments, sample output, and a challenge. You can run lessons independently without needing a build system.
+This repo is designed as a broad Kotlin learning path covering the major language features most learners use first. It is intentionally practical: each lesson is focused, runnable, and written to help you understand and apply the concept, not just memorize syntax.
 
-## Requirements
+## Coverage
 
-Install the Kotlin command-line compiler (`kotlinc`) and a Java runtime, or open a lesson in IntelliJ IDEA. Check your installation with `kotlinc -version`.
+Core topics included in this repo:
 
-## Run a lesson
+- Variables, constants, and types
+- Expressions and control flow
+- Functions and default arguments
+- Collections and transformation functions
+- Null safety and nullable values
+- Classes, data classes, and inheritance
+- Interfaces, abstraction, and polymorphism
+- Generics, lambdas, and higher-order functions
+- Exceptions and validation
+- Basic coroutines and asynchronous workflows
+- Testing patterns and simple assertions
 
-From the repository root, compile and run one lesson at a time:
+## How to run a lesson
+
+Compile and run a lesson file one at a time:
 
 ```bash
 kotlinc lessons/01_variables_and_types.kt -include-runtime -d lesson.jar
 java -jar lesson.jar
 ```
 
-Change the lesson filename to run another example. The files are deliberately independent: each has its own `main()` entry point.
+Repeat with a different file name to study each topic independently.
 
-## Course map
+## Lesson map
 
-1. [`01_variables_and_types.kt`](lessons/01_variables_and_types.kt) — `val`, `var`, types, and string templates
-2. [`02_control_flow.kt`](lessons/02_control_flow.kt) — conditions, ranges, and loops
-3. [`03_functions.kt`](lessons/03_functions.kt) — parameters, return values, defaults, and validation
-4. [`04_collections_and_null_safety.kt`](lessons/04_collections_and_null_safety.kt) — lists, filtering, nullable values, and safe calls
-5. [`05_classes_and_data.kt`](lessons/05_classes_and_data.kt) — data classes, state, and simple object behavior
+1. `lessons/01_variables_and_types.kt`
+2. `lessons/02_control_flow.kt`
+3. `lessons/03_functions.kt`
+4. `lessons/04_collections_and_null_safety.kt`
+5. `lessons/05_classes_and_data.kt`
+6. `lessons/06_generics_and_lambdas.kt`
+7. `lessons/07_interfaces_and_inheritance.kt`
+8. `lessons/08_exceptions_and_validation.kt`
+9. `lessons/09_coroutines_basics.kt`
+10. `lessons/10_testable_code.kt`
 
-Read the comments, run the program, change one thing, and predict the result before running it again.
+## Learning method
 
-## Practice routine
+- Read the comments first.
+- Run the code without changing it.
+- Change one value and predict the result.
+- Add a small challenge from the comment block.
+- Repeat with your own examples.
 
-For each lesson:
+## Practice project ideas
 
-1. Run the example unchanged.
-2. Explain each line in your own words.
-3. Complete the `Try it` challenge in the file.
-4. Test normal input and edge cases.
-5. Save your solution in a separate file so the reference remains available.
+- Study tracker with completion status
+- Expense tracker with categories and totals
+- Library catalog with search and filtering
+- Task manager using lists, functions, classes, and coroutines
 
-## Mini-project: study tracker
+## References
 
-After the lessons, build a command-line study tracker that stores topics in a list, marks a topic complete, reports completion percentage, and rejects blank topic names. Use a data class for each topic and functions for the operations.
+- Kotlin docs: https://kotlinlang.org/docs/home.html
+- Basic syntax: https://kotlinlang.org/docs/basic-syntax.html
+- Null safety: https://kotlinlang.org/docs/null-safety.html
+- Coroutines: https://kotlinlang.org/docs/coroutines-guide.html
 
-## Reliable references
+## Note
 
-- [Kotlin getting started](https://kotlinlang.org/docs/getting-started.html)
-- [Kotlin basic syntax](https://kotlinlang.org/docs/basic-syntax.html)
-- [Kotlin collections overview](https://kotlinlang.org/docs/collections-overview.html)
-- [Kotlin null safety](https://kotlinlang.org/docs/null-safety.html)
-
-## Contributing
-
-Keep examples beginner-friendly and executable with the documented command. Explain expected behavior, include a small practice task, and avoid adding dependencies unless a lesson specifically teaches them.
+This repo focuses on the language foundations most programmers use in real Kotlin projects. It does not try to cover every niche JVM or multiplatform edge case, but it gives you a solid starting point for understanding the language as a whole.
