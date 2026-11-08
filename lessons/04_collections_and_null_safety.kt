@@ -1,22 +1,22 @@
-// Lesson 4: collection operations and Kotlin's nullable types.
+// Lesson 4: collections, transformations, and null safety.
 // Run: kotlinc lessons/04_collections_and_null_safety.kt -include-runtime -d lesson.jar && java -jar lesson.jar
 fun main() {
-    val scores = listOf(72, 95, 48, 81)
-    val passingScores = scores.filter { it >= 60 }.sorted()
-    println("Passing scores: $passingScores")
-    println("Average score: ${scores.average()}")
+    val numbers = listOf(3, 8, 12, 5)
+    val doubled = numbers.map { it * 2 }
+    val evens = numbers.filter { it % 2 == 0 }
 
-    // A nullable String may be absent. Safe calls avoid dereferencing null.
-    val optionalNickname: String? = readNickname()
-    val displayName = optionalNickname?.trim()?.takeIf { it.isNotEmpty() } ?: "Guest"
-    println("Welcome, $displayName")
+    println("Numbers: $numbers")
+    println("Doubled: $doubled")
+    println("Even numbers: $evens")
+    println("Largest: ${numbers.maxOrNull()}")
 
-    // Convert untrusted text safely; toIntOrNull returns null if it is not a number.
-    val input = "42x"
-    val parsedNumber = input.toIntOrNull()
-    println("Parsed number: ${parsedNumber ?: "input was not an integer"}")
+    val nickname: String? = "  learner  "
+    val cleanName = nickname?.trim()?.takeIf { it.isNotEmpty() } ?: "Guest"
+    println("Welcome, $cleanName")
 
-    // Try it: given a list of names, print non-blank names in alphabetical order.
+    val text = "42x"
+    val parsed = text.toIntOrNull()
+    println("Parsed: ${parsed ?: "not a valid integer"}")
+
+    // Try it: build a list of names and print only the ones that are not blank.
 }
-
-fun readNickname(): String? = "  learner  "

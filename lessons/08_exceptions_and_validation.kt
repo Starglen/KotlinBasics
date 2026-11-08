@@ -1,27 +1,27 @@
-// Lesson 8: exceptions, validation, and safe error handling.
+// Lesson 8: exceptions, validation, and defensive coding.
 // Run: kotlinc lessons/08_exceptions_and_validation.kt -include-runtime -d lesson.jar && java -jar lesson.jar
 fun main() {
     try {
-        val value = parseAge("-3")
-        println("Age: $value")
+        println(parseAge("21"))
+        println(parseAge("-1"))
     } catch (e: IllegalArgumentException) {
-        println("Validation error: ${e.message}")
+        println("Caught: ${e.message}")
     }
 
     try {
-        val result = divide(10, 0)
-        println("Result: $result")
+        println(divide(10, 0))
     } catch (e: ArithmeticException) {
         println("Cannot divide by zero")
     }
-
-    // Try it: add an input checker for blank names and names longer than 20 characters.
 }
 
-fun parseAge(raw: String): Int {
-    val age = raw.toIntOrNull() ?: throw IllegalArgumentException("Age must be a valid number")
+fun parseAge(value: String): Int {
+    val age = value.toIntOrNull() ?: throw IllegalArgumentException("Age must be a number")
     require(age >= 0) { "Age cannot be negative" }
     return age
 }
 
-fun divide(a: Int, b: Int): Int = if (b == 0) throw ArithmeticException("Divide by zero") else a / b
+fun divide(a: Int, b: Int): Int {
+    if (b == 0) throw ArithmeticException("Divide by zero")
+    return a / b
+}

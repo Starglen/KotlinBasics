@@ -1,21 +1,11 @@
 # Kotlin cheat sheet
 
-## Variables
+## Variables and constants
 
 ```kotlin
-val name = "Ada"          // immutable
-var score = 10             // mutable
+val name = "Ada"
+var score = 10
 var age: Int = 21
-```
-
-## Functions
-
-```kotlin
-fun greet(name: String): String {
-    return "Hello, $name"
-}
-
-fun add(a: Int, b: Int) = a + b
 ```
 
 ## Conditionals
@@ -23,38 +13,33 @@ fun add(a: Int, b: Int) = a + b
 ```kotlin
 val grade = if (score >= 80) "A" else "B"
 
-when (day) {
-    1 -> println("Monday")
-    2 -> println("Tuesday")
-    else -> println("Another day")
+when (value) {
+    1 -> println("One")
+    2 -> println("Two")
+    else -> println("Other")
 }
 ```
 
-## Loops
+## Functions
 
 ```kotlin
-for (i in 1..5) {
-    println(i)
-}
-
-while (count > 0) {
-    count--
-}
+fun greet(name: String): String = "Hello, $name"
+fun sum(a: Int, b: Int) = a + b
 ```
 
 ## Collections
 
 ```kotlin
-val list = listOf(1, 2, 3)
-val mapped = list.map { it * 2 }
-val filtered = list.filter { it > 1 }
+val numbers = listOf(1, 2, 3)
+val doubled = numbers.map { it * 2 }
+val evens = numbers.filter { it % 2 == 0 }
 ```
 
 ## Null safety
 
 ```kotlin
-val name: String? = null
-println(name?.length ?: 0)
+val nickname: String? = null
+println(nickname?.length ?: 0)
 ```
 
 ## Classes
@@ -67,12 +52,18 @@ class Course(val title: String) {
 }
 ```
 
-## Basics to remember
+## Exceptions
 
-- `val` is read-only
-- `var` is mutable
-- `if` and `when` are expressions in Kotlin
-- `null` must be handled explicitly
-- collections are functional-friendly
-- classes can hold state and behavior
-- functions can be reused in many contexts
+```kotlin
+require(age >= 0) { "Age cannot be negative" }
+```
+
+## Coroutines
+
+```kotlin
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    launch { println("Working") }
+}
+```

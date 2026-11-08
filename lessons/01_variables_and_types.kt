@@ -1,17 +1,18 @@
-// Lesson 1: values, variables, types, and string templates.
+// Lesson 1: variables, constants, types, and string templates.
 // Run: kotlinc lessons/01_variables_and_types.kt -include-runtime -d lesson.jar && java -jar lesson.jar
 fun main() {
-    val learnerName: String = "Sam" // val cannot be reassigned
-    var completedLessons: Int = 1 // var can be reassigned
-    completedLessons += 1
+    val name = "Ada"
+    var score = 10
+    val age: Int = 21
+    val isActive = true
 
-    val hoursStudied = 1.5 // Kotlin infers Double
-    val isReadyForNextLesson = completedLessons >= 2
+    score += 5
 
-    println("Learner: $learnerName")
-    println("Lessons completed: $completedLessons")
-    println("Hours studied: $hoursStudied")
-    println("Ready for next lesson: $isReadyForNextLesson")
+    println("Name: $name")
+    println("Score: $score")
+    println("Age: $age")
+    println("Active: $isActive")
 
-    // Try it: change the values, add a Boolean variable, and print a sentence using it.
+    // Try it: add a `courseName` variable and print a sentence such as:
+    // "Ada is learning Kotlin for courseName"
 }

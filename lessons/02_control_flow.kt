@@ -1,25 +1,28 @@
-// Lesson 2: expressions, if/else, when, and loops.
+// Lesson 2: control flow, conditions, ranges, and loops.
 // Run: kotlinc lessons/02_control_flow.kt -include-runtime -d lesson.jar && java -jar lesson.jar
 fun main() {
     val score = 82
-    val grade = when {
-        score >= 90 -> "A"
-        score >= 80 -> "B"
-        score >= 70 -> "C"
-        else -> "Keep practicing"
-    }
-    println("Score $score earns: $grade")
 
-    val studyPlan = listOf("Types", "Conditions", "Functions")
-    for ((index, topic) in studyPlan.withIndex()) {
-        println("${index + 1}. $topic")
+    val grade = if (score >= 90) {
+        "A"
+    } else if (score >= 80) {
+        "B"
+    } else if (score >= 70) {
+        "C"
+    } else {
+        "Needs work"
     }
 
-    var countdown = 3
-    while (countdown > 0) {
-        println("Starting in $countdown")
-        countdown--
+    println("Grade: $grade")
+
+    for (i in 1..5) {
+        println("Loop $i")
     }
 
-    // Try it: print only the even numbers from 1 through 20 and count them.
+    val days = listOf("Mon", "Tue", "Wed")
+    for (day in days) {
+        println(day)
+    }
+
+    // Try it: use `when` instead of `if` and print the grade category.
 }

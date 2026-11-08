@@ -1,41 +1,40 @@
-// Lesson 5: data classes and encapsulating behavior in a class.
+// Lesson 5: classes, objects, and data classes.
 // Run: kotlinc lessons/05_classes_and_data.kt -include-runtime -d lesson.jar && java -jar lesson.jar
 fun main() {
-    val tracker = StudyTracker("Kotlin basics")
+    val student = Student("Nia", 19)
+    println(student)
+
+    val course = Course("Kotlin Basics")
+    println(course.info())
+
+    val tracker = StudyProgress()
     tracker.addLesson("Variables")
     tracker.addLesson("Functions")
-    tracker.completeLesson("Variables")
-
+    tracker.markComplete("Variables")
     println(tracker.summary())
-    println("Lessons: ${tracker.lessons}")
-
-    // Try it: add a removeLesson function and ensure removing a missing lesson is safe.
 }
 
-data class Lesson(val title: String, val isComplete: Boolean = false)
+data class Student(val name: String, val age: Int)
 
-class StudyTracker(private val courseName: String) {
-    private val lessonList = mutableListOf<Lesson>()
-    val lessons: List<Lesson>
-        get() = lessonList.toList() // expose a read-only snapshot
+class Course(val title: String) {
+    fun info(): String = "Course: $title"
+}
 
-    fun addLesson(title: String) {
-        val cleanTitle = title.trim()
-        require(cleanTitle.isNotEmpty()) { "Lesson title cannot be blank" }
-        if (lessonList.none { it.title.equals(cleanTitle, ignoreCase = true) }) {
-            lessonList.add(Lesson(cleanTitle))
+class StudyProgress {
+    private val lessons = mutableListOf<String>()
+    private val completed = mutableListOf<String>()
+
+    fun addLesson(name: String) {
+        if (name.isNotBlank() && name !in lessons) {
+            lessons.add(name)
         }
     }
 
-    fun completeLesson(title: String): Boolean {
-        val index = lessonList.indexOfFirst { it.title.equals(title.trim(), ignoreCase = true) }
-        if (index == -1) return false
-        lessonList[index] = lessonList[index].copy(isComplete = true)
-        return true
+    fun markComplete(name: String) {
+        if (name in lessons && name !in completed) {
+            completed.add(name)
+        }
     }
 
-    fun summary(): String {
-        val complete = lessonList.count { it.isComplete }
-        return "$courseName: $complete/${lessonList.size} lessons complete"
-    }
+    fun summary(): String = "Completed ${completed.size} out of ${lessons.size} lessons"
 }

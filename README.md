@@ -1,79 +1,78 @@
 # Kotlin Foundations
 
-This repo is a real Kotlin learning resource for beginners and early intermediate learners. It is designed to help you understand the language through runnable examples, short exercises, and project-style tasks.
+This repo is built as a practical learning resource for Kotlin beginners and early intermediate learners. It focuses on core Kotlin features and on using code examples that are easy to run and easy to reason about.
 
-## What this repo covers
+## Why this repo exists
 
-- Variables, constants, and scalar types
-- Input, output, and string templates
-- Conditions, loops, ranges, and `when`
-- Functions, return values, and default arguments
-- Lists, maps, filtering, mapping, and sorting
-- Null safety and safe handling of missing values
-- Classes, objects, state, and data classes
-- Interfaces, inheritance, and abstraction
-- Generic types and higher-order functions
-- Exceptions, validation, and defensive coding
-- Coroutines and async patterns
-- Testing concepts with assertions and small examples
-- Final project: a study tracker app with tasks and progress
+Many beginner repos are just a few random scripts. This repo is meant to teach the language as a whole:
 
-## Recommended learning order
+- syntax and structure
+- functions and data flow
+- collections and abstractions
+- safety and validation
+- objects and reuse
+- async patterns
+- testing fundamentals
 
-1. `lessons/01_variables_and_types.kt`
-2. `lessons/02_control_flow.kt`
-3. `lessons/03_functions.kt`
-4. `lessons/04_collections_and_null_safety.kt`
-5. `lessons/05_classes_and_data.kt`
-6. `lessons/06_generics_and_lambdas.kt`
-7. `lessons/07_interfaces_and_inheritance.kt`
-8. `lessons/08_exceptions_and_validation.kt`
-9. `lessons/09_coroutines_basics.kt`
-10. `lessons/10_testable_code.kt`
-11. `lessons/11_study_tracker_project.kt`
-12. `lessons/12_kotlin_cheat_sheet.md`
+## Course flow
+
+1. Variables and types
+2. Control flow
+3. Functions and defaults
+4. Collections and null safety
+5. Classes and data classes
+6. Interfaces and inheritance
+7. Generics and lambdas
+8. Exceptions and validation
+9. Coroutines basics
+10. Testing patterns
+11. Final project: study tracker
 
 ## Run a lesson
 
-Compile one file at a time:
+Compile and run a single lesson file at a time:
 
 ```bash
 kotlinc lessons/01_variables_and_types.kt -include-runtime -d lesson.jar
 java -jar lesson.jar
 ```
 
-Use the same pattern for any other lesson file. Do not compile the entire directory at once unless each lesson is intentionally independent and you know what you are doing.
+Use the same pattern for any lesson file. Do not compile every file at once unless each file is meant to be independent and you understand the result.
 
-## Learning habit
+## Files in this repo
 
-For every lesson:
+- `lessons/` — individual, runnable Kotlin lessons
+- `README.md` — overview and learning path
+- `lessons/12_kotlin_cheat_sheet.md` — compact reference notes
 
-1. Read the comments.
-2. Run the code.
-3. Change one value and predict the outcome.
-4. Write your own mini example.
-5. Solve the challenge in the comments.
+## Learning method
+
+- Read the comments.
+- Run the example exactly as written.
+- Change one value and predict the output.
+- Add your own mini challenge.
+- Repeat with different inputs.
 
 ## Final project
 
-The final project in `lessons/11_study_tracker_project.kt` is a study tracker:
+The last lesson is a small study tracker app that can do the following:
 
-- add topics
+- add study topics
 - mark them complete
 - list incomplete work
-- calculate progress percentage
-- prevent blank names and duplicates
+- calculate the progress percent
+- reject bad input like an empty topic name
 
-This helps you combine loops, functions, classes, and validation in one practical app.
+This gives you a realistic project that combines most of the major Kotlin ideas in one place.
 
-## References
+## Useful references
 
 - Kotlin docs: https://kotlinlang.org/docs/home.html
 - Kotlin basics: https://kotlinlang.org/docs/basic-syntax.html
-- Collections: https://kotlinlang.org/docs/collections-overview.html
 - Null safety: https://kotlinlang.org/docs/null-safety.html
 - Coroutines: https://kotlinlang.org/docs/coroutines-guide.html
+- Collections: https://kotlinlang.org/docs/collections-overview.html
 
-## Why this repo is valuable
+## Practical note
 
-This repo is intentionally structured as a practical learning resource. It is built to guide you from syntax to real Kotlin problem solving, instead of leaving you with isolated code snippets that do not fit together.
+This is a strong beginner-to-intermediate learning repo. It gives you a solid Kotlin foundation and demonstrates the kind of code patterns used in real projects, without pretending to be a complete description of every Kotlin edge case.
